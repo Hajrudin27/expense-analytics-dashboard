@@ -1,0 +1,336 @@
+expense_id,expense_date,category_id,paid_by_person_id,merchant,description,amount_dkk,split_type,participant_count
+1,2025-09-01,1,3,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,4
+2,2025-09-01,2,1,Ørsted,Utilities - Ørsted,673.55,EQUAL,4
+3,2025-09-01,3,3,Fibia,Internet - Fibia,340.21,EQUAL,4
+4,2025-09-01,4,2,Føtex,Groceries - Føtex,653.18,EQUAL,4
+5,2025-09-01,7,1,GoMore,Transport - GoMore,445.48,EQUAL,4
+6,2025-09-02,6,4,Jensens,Dining Out - Jensens,675.43,CUSTOM,3
+7,2025-09-03,4,1,Bilka,Groceries - Bilka,608.35,EQUAL,4
+8,2025-09-03,5,2,IKEA,Household Supplies - IKEA,171.38,EQUAL,4
+9,2025-09-03,7,1,GoMore,Transport - GoMore,469.70,EQUAL,4
+10,2025-09-05,4,3,Føtex,Groceries - Føtex,342.24,EQUAL,4
+11,2025-09-05,7,2,GoMore,Transport - GoMore,164.68,EQUAL,4
+12,2025-09-07,5,3,Matas,Household Supplies - Matas,170.56,EQUAL,4
+13,2025-09-08,8,2,jem & fix,Repairs - jem & fix,479.37,EQUAL,4
+14,2025-09-09,6,4,Cafe Vivaldi,Dining Out - Cafe Vivaldi,361.06,CUSTOM,3
+15,2025-09-12,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,459.08,EQUAL,4
+16,2025-09-13,4,3,Føtex,Groceries - Føtex,767.80,EQUAL,4
+17,2025-09-14,4,2,Netto,Groceries - Netto,134.76,EQUAL,4
+18,2025-09-15,4,1,Lidl,Groceries - Lidl,124.91,EQUAL,4
+19,2025-09-17,7,2,DSB,Transport - DSB,177.73,EQUAL,4
+20,2025-09-19,4,2,Rema 1000,Groceries - Rema 1000,334.49,EQUAL,4
+21,2025-09-20,4,1,Føtex,Groceries - Føtex,493.76,EQUAL,4
+22,2025-09-20,5,4,Matas,Household Supplies - Matas,211.32,EQUAL,4
+23,2025-09-23,4,3,Lidl,Groceries - Lidl,604.20,EQUAL,4
+24,2025-09-25,4,4,Lidl,Groceries - Lidl,207.97,EQUAL,4
+25,2025-09-26,5,2,IKEA,Household Supplies - IKEA,60.61,EQUAL,4
+26,2025-09-27,4,4,Bilka,Groceries - Bilka,635.75,EQUAL,4
+27,2025-09-27,7,1,GoMore,Transport - GoMore,133.06,EQUAL,4
+28,2025-09-29,4,2,Netto,Groceries - Netto,613.89,EQUAL,4
+29,2025-09-29,8,1,jem & fix,Repairs - jem & fix,1768.70,EQUAL,4
+30,2025-09-30,4,2,Bilka,Groceries - Bilka,160.51,EQUAL,4
+31,2025-09-30,6,3,Kebabhouse,Dining Out - Kebabhouse,130.89,EQUAL,4
+32,2025-10-01,1,1,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,4
+33,2025-10-01,2,3,Ørsted,Utilities - Ørsted,1080.02,EQUAL,4
+34,2025-10-01,3,3,Hiper,Internet - Hiper,315.88,EQUAL,4
+35,2025-10-02,4,4,Lidl,Groceries - Lidl,540.38,EQUAL,4
+36,2025-10-04,4,2,Rema 1000,Groceries - Rema 1000,223.89,EQUAL,4
+37,2025-10-05,4,1,Netto,Groceries - Netto,324.03,EQUAL,4
+38,2025-10-06,5,3,Silvan,Household Supplies - Silvan,223.31,EQUAL,4
+39,2025-10-06,7,4,DSB,Transport - DSB,342.00,EQUAL,4
+40,2025-10-08,4,4,Netto,Groceries - Netto,267.62,EQUAL,4
+41,2025-10-12,4,4,Føtex,Groceries - Føtex,150.77,EQUAL,4
+42,2025-10-13,4,4,Netto,Groceries - Netto,415.48,EQUAL,4
+43,2025-10-14,4,2,Netto,Groceries - Netto,287.38,EQUAL,4
+44,2025-10-17,5,1,Silvan,Household Supplies - Silvan,185.02,EQUAL,4
+45,2025-10-18,4,3,Føtex,Groceries - Føtex,148.84,EQUAL,4
+46,2025-10-18,5,4,Silvan,Household Supplies - Silvan,207.11,EQUAL,4
+47,2025-10-25,4,3,Lidl,Groceries - Lidl,650.01,EQUAL,4
+48,2025-10-25,6,2,Cafe Vivaldi,Dining Out - Cafe Vivaldi,644.20,EQUAL,4
+49,2025-10-25,7,4,Circle K,Transport - Circle K,106.43,EQUAL,4
+50,2025-10-29,4,4,Netto,Groceries - Netto,173.65,EQUAL,4
+51,2025-10-29,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,669.64,EQUAL,4
+52,2025-10-30,8,3,Elektriker Vejle,Repairs - Elektriker Vejle,1700.00,EQUAL,4
+53,2025-11-01,1,3,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,4
+54,2025-11-01,2,2,TREFOR,Utilities - TREFOR,917.97,EQUAL,4
+55,2025-11-01,3,2,Hiper,Internet - Hiper,332.10,EQUAL,4
+56,2025-11-01,4,1,Føtex,Groceries - Føtex,130.20,EQUAL,4
+57,2025-11-01,6,2,Sunset Boulevard,Dining Out - Sunset Boulevard,627.89,CUSTOM,2
+58,2025-11-05,4,4,Føtex,Groceries - Føtex,486.49,EQUAL,4
+59,2025-11-05,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,323.70,EQUAL,4
+60,2025-11-09,4,4,Føtex,Groceries - Føtex,533.46,EQUAL,4
+61,2025-11-10,4,3,Lidl,Groceries - Lidl,389.40,EQUAL,4
+62,2025-11-11,5,2,IKEA,Household Supplies - IKEA,178.82,EQUAL,4
+63,2025-11-12,4,3,Bilka,Groceries - Bilka,170.94,EQUAL,4
+64,2025-11-14,4,4,Netto,Groceries - Netto,528.51,EQUAL,4
+65,2025-11-14,6,4,Cafe Vivaldi,Dining Out - Cafe Vivaldi,572.38,CUSTOM,2
+66,2025-11-15,4,2,Føtex,Groceries - Føtex,247.56,EQUAL,4
+67,2025-11-15,5,1,Matas,Household Supplies - Matas,239.18,EQUAL,4
+68,2025-11-17,4,1,Bilka,Groceries - Bilka,595.03,EQUAL,4
+69,2025-11-19,4,2,Netto,Groceries - Netto,436.24,EQUAL,4
+70,2025-11-22,4,4,Føtex,Groceries - Føtex,444.33,EQUAL,4
+71,2025-11-26,5,3,IKEA,Household Supplies - IKEA,169.49,EQUAL,4
+72,2025-11-27,6,2,Jensens,Dining Out - Jensens,155.34,CUSTOM,3
+73,2025-11-27,7,2,GoMore,Transport - GoMore,405.02,CUSTOM,2
+74,2025-11-28,5,2,IKEA,Household Supplies - IKEA,309.43,EQUAL,4
+75,2025-11-28,6,1,Kebabhouse,Dining Out - Kebabhouse,565.30,EQUAL,4
+76,2025-11-29,4,2,Lidl,Groceries - Lidl,615.41,EQUAL,4
+77,2025-11-29,5,1,IKEA,Household Supplies - IKEA,90.24,EQUAL,4
+78,2025-11-30,5,1,Normal,Household Supplies - Normal,302.41,EQUAL,4
+79,2025-12-01,1,3,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,4
+80,2025-12-01,2,3,Norlys,Utilities - Norlys,2344.39,EQUAL,4
+81,2025-12-01,3,2,Fibia,Internet - Fibia,344.44,EQUAL,4
+82,2025-12-01,4,1,Netto,Groceries - Netto,298.83,EQUAL,4
+83,2025-12-03,4,1,Netto,Groceries - Netto,698.71,EQUAL,4
+84,2025-12-04,4,1,Rema 1000,Groceries - Rema 1000,300.62,EQUAL,4
+85,2025-12-06,6,1,Cafe Vivaldi,Dining Out - Cafe Vivaldi,770.19,EQUAL,4
+86,2025-12-08,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,811.37,EQUAL,4
+87,2025-12-09,4,4,Bilka,Groceries - Bilka,218.21,EQUAL,4
+88,2025-12-12,5,1,Matas,Household Supplies - Matas,174.99,EQUAL,4
+89,2025-12-13,4,3,Netto,Groceries - Netto,690.43,EQUAL,4
+90,2025-12-13,5,1,IKEA,Household Supplies - IKEA,197.53,EQUAL,4
+91,2025-12-14,4,2,Føtex,Groceries - Føtex,760.35,EQUAL,4
+92,2025-12-19,4,4,Føtex,Groceries - Føtex,231.96,EQUAL,4
+93,2025-12-19,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,296.71,CUSTOM,4
+94,2025-12-20,4,4,Rema 1000,Groceries - Rema 1000,744.81,EQUAL,4
+95,2025-12-23,4,3,Lidl,Groceries - Lidl,116.10,EQUAL,4
+96,2025-12-26,4,3,Netto,Groceries - Netto,394.21,EQUAL,4
+97,2025-12-27,7,1,Sydtrafik,Transport - Sydtrafik,210.34,EQUAL,4
+98,2025-12-28,4,1,Lidl,Groceries - Lidl,680.32,EQUAL,4
+99,2025-12-29,4,4,Lidl,Groceries - Lidl,818.63,EQUAL,4
+100,2026-01-01,1,1,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,4
+101,2026-01-01,2,4,Norlys,Utilities - Norlys,2715.85,EQUAL,4
+102,2026-01-01,3,1,Hiper,Internet - Hiper,338.75,EQUAL,4
+103,2026-01-01,6,1,Kebabhouse,Dining Out - Kebabhouse,252.45,EQUAL,4
+104,2026-01-02,4,1,Netto,Groceries - Netto,172.31,EQUAL,4
+105,2026-01-02,5,1,Normal,Household Supplies - Normal,202.49,EQUAL,4
+106,2026-01-03,4,4,Bilka,Groceries - Bilka,599.55,EQUAL,4
+107,2026-01-03,5,3,IKEA,Household Supplies - IKEA,280.30,EQUAL,4
+108,2026-01-05,6,3,Sunset Boulevard,Dining Out - Sunset Boulevard,194.08,EQUAL,4
+109,2026-01-06,5,3,IKEA,Household Supplies - IKEA,213.01,EQUAL,4
+110,2026-01-07,4,4,Rema 1000,Groceries - Rema 1000,721.61,EQUAL,4
+111,2026-01-10,4,3,Lidl,Groceries - Lidl,524.04,EQUAL,4
+112,2026-01-11,4,3,Føtex,Groceries - Føtex,98.62,EQUAL,4
+113,2026-01-13,4,1,Lidl,Groceries - Lidl,196.40,EQUAL,4
+114,2026-01-13,5,3,Normal,Household Supplies - Normal,68.48,EQUAL,4
+115,2026-01-13,6,3,Kebabhouse,Dining Out - Kebabhouse,199.11,EQUAL,4
+116,2026-01-15,7,1,Circle K,Transport - Circle K,144.71,CUSTOM,5
+117,2026-01-16,4,4,Bilka,Groceries - Bilka,437.17,EQUAL,5
+118,2026-01-17,4,3,Bilka,Groceries - Bilka,228.86,EQUAL,5
+119,2026-01-17,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,132.72,CUSTOM,4
+120,2026-01-17,7,4,DSB,Transport - DSB,235.72,EQUAL,5
+121,2026-01-19,5,1,IKEA,Household Supplies - IKEA,193.63,EQUAL,5
+122,2026-01-21,7,5,Circle K,Transport - Circle K,167.93,EQUAL,5
+123,2026-01-23,4,3,Føtex,Groceries - Føtex,389.88,EQUAL,5
+124,2026-01-24,4,1,Netto,Groceries - Netto,776.29,EQUAL,5
+125,2026-01-25,4,4,Lidl,Groceries - Lidl,641.79,EQUAL,5
+126,2026-01-26,4,1,Føtex,Groceries - Føtex,359.69,EQUAL,5
+127,2026-01-28,4,5,Lidl,Groceries - Lidl,444.18,EQUAL,5
+128,2026-01-31,5,5,IKEA,Household Supplies - IKEA,194.66,EQUAL,5
+129,2026-02-01,1,1,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+130,2026-02-01,2,1,Ørsted,Utilities - Ørsted,1177.35,EQUAL,5
+131,2026-02-01,3,3,Hiper,Internet - Hiper,338.91,EQUAL,5
+132,2026-02-01,6,4,Kebabhouse,Dining Out - Kebabhouse,389.14,CUSTOM,2
+133,2026-02-02,4,5,Lidl,Groceries - Lidl,606.65,EQUAL,5
+134,2026-02-02,5,2,Matas,Household Supplies - Matas,49.22,EQUAL,5
+135,2026-02-03,4,1,Netto,Groceries - Netto,450.94,EQUAL,5
+136,2026-02-04,7,2,Circle K,Transport - Circle K,474.11,EQUAL,5
+137,2026-02-06,6,1,Kebabhouse,Dining Out - Kebabhouse,427.35,CUSTOM,5
+138,2026-02-06,7,3,Sydtrafik,Transport - Sydtrafik,259.86,EQUAL,5
+139,2026-02-07,4,2,Føtex,Groceries - Føtex,282.60,EQUAL,5
+140,2026-02-08,4,3,Bilka,Groceries - Bilka,459.09,EQUAL,5
+141,2026-02-09,4,5,Rema 1000,Groceries - Rema 1000,637.85,EQUAL,5
+142,2026-02-11,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,230.37,EQUAL,5
+143,2026-02-13,5,4,Matas,Household Supplies - Matas,314.88,EQUAL,5
+144,2026-02-16,4,1,Rema 1000,Groceries - Rema 1000,134.22,EQUAL,5
+145,2026-02-16,6,3,Sunset Boulevard,Dining Out - Sunset Boulevard,149.41,EQUAL,5
+146,2026-02-17,5,1,IKEA,Household Supplies - IKEA,118.79,EQUAL,5
+147,2026-02-18,4,3,Netto,Groceries - Netto,665.59,EQUAL,5
+148,2026-02-18,8,3,jem & fix,Repairs - jem & fix,1211.58,EQUAL,5
+149,2026-02-20,7,1,Circle K,Transport - Circle K,246.92,CUSTOM,4
+150,2026-02-23,5,3,Matas,Household Supplies - Matas,137.57,EQUAL,5
+151,2026-02-25,6,2,Sunset Boulevard,Dining Out - Sunset Boulevard,450.88,EQUAL,5
+152,2026-02-26,4,4,Netto,Groceries - Netto,397.86,EQUAL,5
+153,2026-02-26,7,2,Sydtrafik,Transport - Sydtrafik,469.72,EQUAL,5
+154,2026-02-28,4,4,Bilka,Groceries - Bilka,681.53,EQUAL,5
+155,2026-03-01,1,2,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+156,2026-03-01,2,4,Ørsted,Utilities - Ørsted,2053.81,EQUAL,5
+157,2026-03-01,3,5,Fibia,Internet - Fibia,302.70,EQUAL,5
+158,2026-03-01,4,2,Bilka,Groceries - Bilka,160.77,EQUAL,5
+159,2026-03-03,4,5,Føtex,Groceries - Føtex,281.57,EQUAL,5
+160,2026-03-04,4,2,Føtex,Groceries - Føtex,290.55,EQUAL,5
+161,2026-03-06,4,1,Netto,Groceries - Netto,197.66,EQUAL,5
+162,2026-03-07,4,2,Lidl,Groceries - Lidl,389.62,EQUAL,5
+163,2026-03-08,4,2,Netto,Groceries - Netto,180.02,EQUAL,5
+164,2026-03-09,4,1,Rema 1000,Groceries - Rema 1000,779.73,EQUAL,5
+165,2026-03-09,5,5,Normal,Household Supplies - Normal,61.99,EQUAL,5
+166,2026-03-11,4,2,Føtex,Groceries - Føtex,148.05,EQUAL,5
+167,2026-03-14,4,2,Netto,Groceries - Netto,289.32,EQUAL,5
+168,2026-03-16,4,1,Rema 1000,Groceries - Rema 1000,489.85,EQUAL,5
+169,2026-03-16,5,2,IKEA,Household Supplies - IKEA,111.55,EQUAL,5
+170,2026-03-16,6,5,Jensens,Dining Out - Jensens,429.39,EQUAL,5
+171,2026-03-17,4,3,Lidl,Groceries - Lidl,399.89,EQUAL,5
+172,2026-03-17,5,2,Silvan,Household Supplies - Silvan,264.23,EQUAL,5
+173,2026-03-18,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,679.75,CUSTOM,5
+174,2026-03-20,4,3,Rema 1000,Groceries - Rema 1000,124.30,EQUAL,5
+175,2026-03-21,4,2,Rema 1000,Groceries - Rema 1000,422.81,EQUAL,5
+176,2026-03-22,4,1,Netto,Groceries - Netto,271.33,EQUAL,5
+177,2026-03-24,4,3,Rema 1000,Groceries - Rema 1000,755.57,EQUAL,5
+178,2026-03-25,5,3,Matas,Household Supplies - Matas,287.78,EQUAL,5
+179,2026-03-28,4,3,Netto,Groceries - Netto,134.55,EQUAL,5
+180,2026-03-29,4,4,Føtex,Groceries - Føtex,599.93,EQUAL,5
+181,2026-03-29,6,3,Jensens,Dining Out - Jensens,433.91,CUSTOM,2
+182,2026-03-31,5,3,IKEA,Household Supplies - IKEA,230.31,EQUAL,5
+183,2026-04-01,1,4,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+184,2026-04-01,2,3,TREFOR,Utilities - TREFOR,1066.65,EQUAL,5
+185,2026-04-01,3,3,Hiper,Internet - Hiper,326.32,EQUAL,5
+186,2026-04-01,4,3,Bilka,Groceries - Bilka,629.35,EQUAL,5
+187,2026-04-02,7,4,DSB,Transport - DSB,105.27,EQUAL,5
+188,2026-04-03,4,1,Bilka,Groceries - Bilka,413.27,EQUAL,5
+189,2026-04-03,7,1,GoMore,Transport - GoMore,399.22,CUSTOM,2
+190,2026-04-04,4,4,Netto,Groceries - Netto,508.48,EQUAL,5
+191,2026-04-05,4,4,Netto,Groceries - Netto,207.25,EQUAL,5
+192,2026-04-11,4,2,Bilka,Groceries - Bilka,251.80,EQUAL,5
+193,2026-04-11,5,1,Matas,Household Supplies - Matas,75.81,EQUAL,5
+194,2026-04-12,4,3,Netto,Groceries - Netto,574.12,EQUAL,5
+195,2026-04-12,7,5,GoMore,Transport - GoMore,356.33,EQUAL,5
+196,2026-04-14,4,2,Rema 1000,Groceries - Rema 1000,598.68,EQUAL,5
+197,2026-04-14,6,1,Sunset Boulevard,Dining Out - Sunset Boulevard,318.72,EQUAL,5
+198,2026-04-16,4,1,Netto,Groceries - Netto,479.47,EQUAL,5
+199,2026-04-18,4,3,Netto,Groceries - Netto,584.50,EQUAL,5
+200,2026-04-20,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,394.36,EQUAL,5
+201,2026-04-21,4,2,Føtex,Groceries - Føtex,436.69,EQUAL,5
+202,2026-04-21,5,5,Silvan,Household Supplies - Silvan,234.23,EQUAL,5
+203,2026-04-22,4,1,Bilka,Groceries - Bilka,509.22,EQUAL,5
+204,2026-04-23,5,5,IKEA,Household Supplies - IKEA,282.86,EQUAL,5
+205,2026-04-24,4,3,Rema 1000,Groceries - Rema 1000,427.66,EQUAL,5
+206,2026-04-25,4,3,Rema 1000,Groceries - Rema 1000,612.76,EQUAL,5
+207,2026-04-26,4,5,Netto,Groceries - Netto,242.11,EQUAL,5
+208,2026-04-26,6,5,Jensens,Dining Out - Jensens,464.00,CUSTOM,2
+209,2026-04-27,4,2,Føtex,Groceries - Føtex,728.91,EQUAL,5
+210,2026-04-27,7,3,Circle K,Transport - Circle K,180.83,CUSTOM,3
+211,2026-04-30,4,3,Bilka,Groceries - Bilka,455.56,EQUAL,5
+212,2026-05-01,1,3,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+213,2026-05-01,2,3,Norlys,Utilities - Norlys,836.87,EQUAL,5
+214,2026-05-01,3,5,Hiper,Internet - Hiper,317.35,EQUAL,5
+215,2026-05-02,4,2,Lidl,Groceries - Lidl,172.88,EQUAL,5
+216,2026-05-02,5,3,Matas,Household Supplies - Matas,119.13,EQUAL,5
+217,2026-05-03,4,1,Netto,Groceries - Netto,721.02,EQUAL,5
+218,2026-05-04,6,5,Jensens,Dining Out - Jensens,236.89,CUSTOM,5
+219,2026-05-06,4,4,Føtex,Groceries - Føtex,652.73,EQUAL,5
+220,2026-05-07,4,1,Rema 1000,Groceries - Rema 1000,157.94,EQUAL,5
+221,2026-05-08,5,5,Silvan,Household Supplies - Silvan,303.79,EQUAL,5
+222,2026-05-09,4,4,Føtex,Groceries - Føtex,692.79,EQUAL,5
+223,2026-05-09,6,5,Kebabhouse,Dining Out - Kebabhouse,530.04,EQUAL,5
+224,2026-05-10,5,5,Normal,Household Supplies - Normal,77.31,EQUAL,5
+225,2026-05-11,6,1,Jensens,Dining Out - Jensens,159.95,EQUAL,5
+226,2026-05-13,4,4,Netto,Groceries - Netto,471.51,EQUAL,5
+227,2026-05-13,5,3,Silvan,Household Supplies - Silvan,208.53,EQUAL,5
+228,2026-05-14,4,1,Bilka,Groceries - Bilka,324.81,EQUAL,5
+229,2026-05-16,6,3,Cafe Vivaldi,Dining Out - Cafe Vivaldi,620.91,EQUAL,5
+230,2026-05-18,4,5,Føtex,Groceries - Føtex,464.42,EQUAL,5
+231,2026-05-19,5,5,IKEA,Household Supplies - IKEA,126.78,EQUAL,5
+232,2026-05-20,4,5,Bilka,Groceries - Bilka,410.02,EQUAL,5
+233,2026-05-21,4,3,Netto,Groceries - Netto,687.95,EQUAL,5
+234,2026-05-21,5,1,Silvan,Household Supplies - Silvan,266.39,EQUAL,5
+235,2026-05-24,4,3,Føtex,Groceries - Føtex,713.95,EQUAL,5
+236,2026-05-26,6,2,Jensens,Dining Out - Jensens,268.23,EQUAL,5
+237,2026-05-27,6,3,Kebabhouse,Dining Out - Kebabhouse,179.25,CUSTOM,4
+238,2026-05-30,4,5,Rema 1000,Groceries - Rema 1000,410.31,EQUAL,5
+239,2026-05-30,5,4,Matas,Household Supplies - Matas,212.44,EQUAL,5
+240,2026-05-30,6,4,Cafe Vivaldi,Dining Out - Cafe Vivaldi,585.03,EQUAL,5
+241,2026-05-31,5,1,Normal,Household Supplies - Normal,279.17,EQUAL,5
+242,2026-06-01,1,1,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+243,2026-06-01,2,2,Norlys,Utilities - Norlys,1147.70,EQUAL,5
+244,2026-06-01,3,5,Fibia,Internet - Fibia,302.64,EQUAL,5
+245,2026-06-01,7,2,Circle K,Transport - Circle K,63.49,CUSTOM,4
+246,2026-06-04,6,3,Sunset Boulevard,Dining Out - Sunset Boulevard,457.39,EQUAL,5
+247,2026-06-05,4,3,Bilka,Groceries - Bilka,381.57,EQUAL,5
+248,2026-06-05,5,1,IKEA,Household Supplies - IKEA,214.93,EQUAL,5
+249,2026-06-06,5,4,Silvan,Household Supplies - Silvan,299.06,EQUAL,5
+250,2026-06-07,4,4,Netto,Groceries - Netto,416.03,EQUAL,5
+251,2026-06-07,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,327.09,CUSTOM,2
+252,2026-06-07,7,1,Sydtrafik,Transport - Sydtrafik,393.68,EQUAL,5
+253,2026-06-08,4,2,Rema 1000,Groceries - Rema 1000,413.88,EQUAL,5
+254,2026-06-09,4,5,Netto,Groceries - Netto,622.05,EQUAL,5
+255,2026-06-11,6,3,Kebabhouse,Dining Out - Kebabhouse,414.42,CUSTOM,4
+256,2026-06-12,4,1,Føtex,Groceries - Føtex,271.73,EQUAL,5
+257,2026-06-14,4,4,Føtex,Groceries - Føtex,228.95,EQUAL,5
+258,2026-06-14,5,3,Silvan,Household Supplies - Silvan,230.53,EQUAL,5
+259,2026-06-15,5,4,IKEA,Household Supplies - IKEA,316.41,EQUAL,5
+260,2026-06-16,4,5,Netto,Groceries - Netto,762.20,EQUAL,5
+261,2026-06-16,5,2,Silvan,Household Supplies - Silvan,299.75,EQUAL,5
+262,2026-06-17,7,2,Sydtrafik,Transport - Sydtrafik,92.90,CUSTOM,2
+263,2026-06-18,7,1,Sydtrafik,Transport - Sydtrafik,302.02,CUSTOM,5
+264,2026-06-20,4,4,Bilka,Groceries - Bilka,626.52,EQUAL,5
+265,2026-06-21,4,3,Lidl,Groceries - Lidl,109.29,EQUAL,5
+266,2026-06-24,5,5,Silvan,Household Supplies - Silvan,291.86,EQUAL,5
+267,2026-06-25,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,318.42,EQUAL,5
+268,2026-06-27,4,3,Lidl,Groceries - Lidl,550.37,EQUAL,5
+269,2026-06-28,4,1,Lidl,Groceries - Lidl,282.99,EQUAL,5
+270,2026-06-28,7,2,Circle K,Transport - Circle K,125.86,EQUAL,5
+271,2026-06-29,4,2,Lidl,Groceries - Lidl,313.35,EQUAL,5
+272,2026-06-29,5,2,Normal,Household Supplies - Normal,152.52,EQUAL,5
+273,2026-06-30,4,5,Rema 1000,Groceries - Rema 1000,737.37,EQUAL,5
+274,2026-07-01,1,2,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+275,2026-07-01,2,2,Norlys,Utilities - Norlys,676.78,EQUAL,5
+276,2026-07-01,3,1,Hiper,Internet - Hiper,299.60,EQUAL,5
+277,2026-07-01,5,2,IKEA,Household Supplies - IKEA,294.72,EQUAL,5
+278,2026-07-03,4,3,Rema 1000,Groceries - Rema 1000,443.76,EQUAL,5
+279,2026-07-03,6,2,Jensens,Dining Out - Jensens,216.90,CUSTOM,2
+280,2026-07-04,4,2,Lidl,Groceries - Lidl,546.94,EQUAL,5
+281,2026-07-04,5,2,Silvan,Household Supplies - Silvan,307.49,EQUAL,5
+282,2026-07-05,4,5,Bilka,Groceries - Bilka,165.79,EQUAL,5
+283,2026-07-05,7,3,GoMore,Transport - GoMore,131.69,EQUAL,5
+284,2026-07-06,6,4,Sunset Boulevard,Dining Out - Sunset Boulevard,252.01,EQUAL,5
+285,2026-07-07,7,4,GoMore,Transport - GoMore,145.02,CUSTOM,3
+286,2026-07-08,4,3,Lidl,Groceries - Lidl,651.37,EQUAL,5
+287,2026-07-09,4,5,Bilka,Groceries - Bilka,255.94,EQUAL,5
+288,2026-07-09,6,3,Kebabhouse,Dining Out - Kebabhouse,333.18,EQUAL,5
+289,2026-07-09,7,1,Sydtrafik,Transport - Sydtrafik,375.14,EQUAL,5
+290,2026-07-10,4,5,Føtex,Groceries - Føtex,663.08,EQUAL,5
+291,2026-07-12,4,4,Bilka,Groceries - Bilka,411.05,EQUAL,5
+292,2026-07-12,6,5,Jensens,Dining Out - Jensens,679.53,CUSTOM,5
+293,2026-07-13,4,5,Bilka,Groceries - Bilka,416.35,EQUAL,5
+294,2026-07-14,6,5,Jensens,Dining Out - Jensens,499.06,EQUAL,5
+295,2026-07-17,4,3,Bilka,Groceries - Bilka,268.77,EQUAL,5
+296,2026-07-19,4,3,Netto,Groceries - Netto,181.48,EQUAL,5
+297,2026-07-19,7,3,GoMore,Transport - GoMore,102.23,EQUAL,5
+298,2026-07-21,4,3,Rema 1000,Groceries - Rema 1000,139.20,EQUAL,5
+299,2026-07-23,5,5,Matas,Household Supplies - Matas,192.48,EQUAL,5
+300,2026-07-23,6,3,Kebabhouse,Dining Out - Kebabhouse,581.28,EQUAL,5
+301,2026-07-25,4,4,Lidl,Groceries - Lidl,187.51,EQUAL,5
+302,2026-07-28,4,3,Føtex,Groceries - Føtex,611.76,EQUAL,5
+303,2026-07-28,7,1,Sydtrafik,Transport - Sydtrafik,367.35,CUSTOM,4
+304,2026-07-31,4,1,Bilka,Groceries - Bilka,457.28,EQUAL,5
+305,2026-07-31,7,4,Circle K,Transport - Circle K,161.25,EQUAL,5
+306,2026-08-01,1,1,Boligforening Vejle,Rent - Boligforening Vejle,8400.00,EQUAL,5
+307,2026-08-01,2,1,TREFOR,Utilities - TREFOR,589.55,EQUAL,5
+308,2026-08-01,3,5,Fibia,Internet - Fibia,343.17,EQUAL,5
+309,2026-08-01,4,2,Rema 1000,Groceries - Rema 1000,173.40,EQUAL,5
+310,2026-08-01,5,2,Normal,Household Supplies - Normal,254.73,EQUAL,5
+311,2026-08-04,7,1,GoMore,Transport - GoMore,349.83,EQUAL,5
+312,2026-08-06,4,5,Rema 1000,Groceries - Rema 1000,725.95,EQUAL,5
+313,2026-08-07,4,2,Netto,Groceries - Netto,483.85,EQUAL,5
+314,2026-08-09,4,4,Lidl,Groceries - Lidl,553.92,EQUAL,5
+315,2026-08-09,6,5,Cafe Vivaldi,Dining Out - Cafe Vivaldi,560.36,EQUAL,5
+316,2026-08-10,6,1,Kebabhouse,Dining Out - Kebabhouse,660.50,CUSTOM,5
+317,2026-08-11,5,5,Normal,Household Supplies - Normal,88.27,EQUAL,5
+318,2026-08-13,4,3,Rema 1000,Groceries - Rema 1000,340.62,EQUAL,5
+319,2026-08-14,4,1,Lidl,Groceries - Lidl,434.23,EQUAL,5
+320,2026-08-14,5,3,Matas,Household Supplies - Matas,48.89,EQUAL,5
+321,2026-08-14,7,5,Sydtrafik,Transport - Sydtrafik,62.46,EQUAL,5
+322,2026-08-15,4,1,Bilka,Groceries - Bilka,257.76,EQUAL,5
+323,2026-08-15,7,2,Sydtrafik,Transport - Sydtrafik,425.14,CUSTOM,2
+324,2026-08-16,4,1,Lidl,Groceries - Lidl,764.53,EQUAL,5
+325,2026-08-20,4,1,Rema 1000,Groceries - Rema 1000,221.84,EQUAL,5
+326,2026-08-21,4,1,Føtex,Groceries - Føtex,750.91,EQUAL,5
+327,2026-08-21,5,2,Matas,Household Supplies - Matas,278.11,EQUAL,5
+328,2026-08-23,4,1,Føtex,Groceries - Føtex,697.43,EQUAL,5
+329,2026-08-23,6,5,Sunset Boulevard,Dining Out - Sunset Boulevard,641.24,CUSTOM,5
+330,2026-08-26,4,3,Netto,Groceries - Netto,668.56,EQUAL,5
+331,2026-08-27,4,1,Netto,Groceries - Netto,614.37,EQUAL,5
+332,2026-08-28,4,4,Bilka,Groceries - Bilka,664.88,EQUAL,5
+333,2026-08-29,5,4,Silvan,Household Supplies - Silvan,58.55,EQUAL,5
+334,2026-08-30,4,2,Føtex,Groceries - Føtex,397.13,EQUAL,5
+335,2026-08-31,6,4,Kebabhouse,Dining Out - Kebabhouse,369.62,CUSTOM,4

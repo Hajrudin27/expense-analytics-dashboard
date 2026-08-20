@@ -1,0 +1,202 @@
+// =====================================================================
+// Expense Analytics — DAX measures
+//
+// Paste each measure into Power BI one at a time
+// (Model view > right-click the table > New measure).
+// Put them all on fact_expense_share unless noted otherwise.
+//
+// Convention: measures that answer "what did the household spend" read
+// fact_expense; measures that answer "what did a person consume" read
+// fact_expense_share. Mixing the two is the classic mistake here — the
+// same expense would be counted once per participant.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// 1. Core totals
+// ---------------------------------------------------------------------
+
+Total Spend =
+SUM ( fact_expense[amount_dkk] )
+
+Person Share =
+SUM ( fact_expense_share[share_amount_dkk] )
+
+Expense Count =
+COUNTROWS ( fact_expense )
+
+Avg Expense =
+DIVIDE (
+    [Total Spend],
+    [Expense Count]
+)
+
+
+// ---------------------------------------------------------------------
+// 2. Per-person view
+// ---------------------------------------------------------------------
+
+// Average cost per active housemate. Uses a distinct count rather than a
+// hard-coded 5, because Jonas only joins in January — dividing by a
+// constant would understate everyone's share for the first four months.
+Active Housemates =
+CALCULATE (
+    DISTINCTCOUNT ( fact_expense_share[person_id] ),
+    ALLEXCEPT ( dim_date, dim_date[year_month] )
+)
+
+Spend per Housemate =
+DIVIDE (
+    [Total Spend],
+    [Active Housemates]
+)
+
+// What this person fronted out of their own pocket.
+Amount Paid =
+CALCULATE (
+    SUM ( fact_expense[amount_dkk] ),
+    USERELATIONSHIP ( fact_expense[paid_by_person_id], dim_person[person_id] )
+)
+
+// Positive = the household owes this person money.
+Net Balance =
+[Amount Paid] - [Person Share]
+
+
+// ---------------------------------------------------------------------
+// 3. Time intelligence
+// ---------------------------------------------------------------------
+
+Spend PM =
+CALCULATE (
+    [Total Spend],
+    DATEADD ( dim_date[date_key], -1, MONTH )
+)
+
+Spend MoM % =
+VAR Current = [Total Spend]
+VAR Prior = [Spend PM]
+RETURN
+    IF (
+        NOT ISBLANK ( Prior ) && Prior <> 0,
+        DIVIDE ( Current - Prior, Prior )
+    )
+
+Spend Rolling 3M =
+CALCULATE (
+    [Total Spend],
+    DATESINPERIOD ( dim_date[date_key], MAX ( dim_date[date_key] ), -3, MONTH )
+)
+
+Spend YTD =
+TOTALYTD (
+    [Total Spend],
+    dim_date[date_key]
+)
+
+
+// ---------------------------------------------------------------------
+// 4. The measures that make the dashboard say something
+//
+// Rent is 43% of total spend and identical every month, so the headline
+// trend line is almost flat and hides everything interesting. Stripping
+// the fixed costs is what exposes the actual seasonality.
+// ---------------------------------------------------------------------
+
+Variable Spend =
+CALCULATE (
+    [Total Spend],
+    dim_category[category_group] <> "Fixed"
+)
+
+Fixed Spend =
+CALCULATE (
+    [Total Spend],
+    dim_category[category_group] = "Fixed"
+)
+
+Fixed Cost Ratio =
+DIVIDE (
+    [Fixed Spend],
+    [Total Spend]
+)
+
+Variable Spend MoM % =
+VAR Current = [Variable Spend]
+VAR Prior =
+    CALCULATE ( [Variable Spend], DATEADD ( dim_date[date_key], -1, MONTH ) )
+RETURN
+    IF (
+        NOT ISBLANK ( Prior ) && Prior <> 0,
+        DIVIDE ( Current - Prior, Prior )
+    )
+
+// Share of total for the category currently in context — drives the
+// contribution/Pareto visual.
+Category % of Total =
+DIVIDE (
+    [Total Spend],
+    CALCULATE ( [Total Spend], ALL ( dim_category ) )
+)
+
+// Name of the single largest category in the current filter context.
+Top Category =
+VAR Ranked =
+    TOPN (
+        1,
+        SUMMARIZE (
+            fact_expense,
+            dim_category[category_name],
+            "@Spend", [Total Spend]
+        ),
+        [@Spend], DESC
+    )
+RETURN
+    MAXX ( Ranked, dim_category[category_name] )
+
+
+// ---------------------------------------------------------------------
+// 5. Behavioural slices
+// ---------------------------------------------------------------------
+
+Weekend Spend =
+CALCULATE (
+    [Total Spend],
+    dim_date[is_weekend] = TRUE ()
+)
+
+Weekend Spend % =
+DIVIDE (
+    [Weekend Spend],
+    [Total Spend]
+)
+
+// Largest single expense in context — useful as a "what drove the spike?"
+// tooltip on the trend chart.
+Largest Expense =
+MAXX (
+    fact_expense,
+    fact_expense[amount_dkk]
+)
+
+
+// ---------------------------------------------------------------------
+// 6. Data quality (shown as a small card on the report)
+//
+// Shares must reconcile to expense totals exactly. If this ever returns
+// anything other than 0, the split logic has drifted and the whole
+// report is suspect — so it belongs on the page, not in a test suite.
+// ---------------------------------------------------------------------
+
+Reconciliation Difference =
+VAR ExpenseTotal = SUM ( fact_expense[amount_dkk] )
+VAR ShareTotal = SUM ( fact_expense_share[share_amount_dkk] )
+RETURN
+    ExpenseTotal - ShareTotal
+
+Reconciliation Status =
+IF (
+    ABS ( [Reconciliation Difference] ) < 0.01,
+    "OK",
+    "MISMATCH"
+)

@@ -1,0 +1,9 @@
+category_id,category_name,category_group
+1,Rent,Fixed
+2,Utilities,Fixed
+3,Internet,Fixed
+4,Groceries,Variable
+5,Household Supplies,Variable
+6,Dining Out,Discretionary
+7,Transport,Variable
+8,Repairs,Irregular

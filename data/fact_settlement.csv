@@ -1,0 +1,19 @@
+settlement_id,settlement_date,from_person_id,to_person_id,amount_dkk,method
+1,2025-10-05,4,3,1713.74,Cash
+2,2025-10-05,4,3,1015.94,Bank transfer
+3,2025-10-05,4,1,1263.62,MobilePay
+4,2025-11-08,4,2,2084.17,MobilePay
+5,2025-11-08,4,2,1424.88,MobilePay
+6,2025-12-03,3,1,1928.92,MobilePay
+7,2026-01-07,2,3,2164.73,Bank transfer
+8,2026-02-03,2,1,1706.85,Cash
+9,2026-03-03,4,3,1902.16,Bank transfer
+10,2026-03-03,4,3,1765.83,MobilePay
+11,2026-04-03,3,5,1437.32,MobilePay
+12,2026-05-04,4,3,1327.71,Bank transfer
+13,2026-05-04,3,4,1001.84,Bank transfer
+14,2026-06-07,2,4,1477.25,Bank transfer
+15,2026-06-07,5,2,683.49,Cash
+16,2026-07-03,2,5,1883.71,Bank transfer
+17,2026-07-03,4,2,456.11,MobilePay
+18,2026-08-07,4,3,221.22,Cash

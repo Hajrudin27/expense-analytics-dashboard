@@ -174,4 +174,4 @@ PostgreSQL, Power BI, DAX, Python
 
 ---
 
-Built in August 2026. I'm a Software Technology student at SDU, mostly a backend person, using this to get properly into the BI side of things.
+Built in August 2026. I'm a Software Technology student at SDU, using this to get properly into the BI side of things.

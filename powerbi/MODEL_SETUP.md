@@ -6,39 +6,17 @@ Everything below takes about 45–60 minutes the first time. Follow it in order.
 
 ## 0. Getting access to Power BI
 
-Power BI Desktop is **Windows-only** — it does not run on macOS. Two viable routes:
+Use Power BI Desktop on Windows, or the Power BI service in a browser with an account and workspace that permit semantic-model editing. Access depends on tenant settings, permissions and licensing; this repository cannot guarantee university-account access.
 
-| Route | How | Notes |
-|---|---|---|
-| **Browser (recommended)** | [app.powerbi.com](https://app.powerbi.com) with your `@student.sdu.dk` account | Free licence covers everything you need in **My Workspace**. Since the July 2026 update the browser can build semantic models, relationships and DAX measures. |
-| **Windows** | Power BI Desktop on a Windows PC, Parallels, or a lab machine at SDU | Full feature set, and `.pbix` files save locally. |
-
-**Test your access first — it takes three minutes:**
-
-1. Go to `app.powerbi.com` and sign in with your SDU account.
-2. Open **My Workspace** in the left sidebar.
-3. Click **+ New** and see whether **Semantic model** / **Report** are available.
-
-If those options are greyed out or you get a "your organisation has disabled" message, SDU's tenant has restricted Power BI. In that case ask SDU IT to enable it for your account, or use a Windows machine on campus. Don't burn a day fighting the tenant — the fallback in the main README works too.
-
----
+Microsoft documents the [current browser model-editing workflow and permissions](https://learn.microsoft.com/en-us/power-bi/transform-model/service-edit-data-models). Check access before starting. The committed CSVs, SQL and Excel tables can be inspected independently of Power BI.
 
 ## 1. Load the data
 
 ### In the browser — use Excel, not CSV
 
-**Do not use the CSV button.** In the Power BI Service, each CSV upload creates its *own*
-semantic model. Six CSVs means six isolated models that cannot be related to each other, and
-the whole data model falls apart.
+Use `powerbi/ExpenseAnalytics.xlsx`, which contains six named Excel Tables, as a convenient single source. In the service's **Create / Get data** flow, choose the available Excel connector and load all six tables into one semantic model. Menus and local-file upload support depend on the current service experience and tenant configuration; do not create six unrelated semantic models.
 
-Use `ExpenseAnalytics.xlsx` instead. It holds all six tables in one workbook, each formatted
-as a real Excel Table, which the Service reads into a **single** model.
-
-1. **My workspace** → **New report** (or **+ Create**)
-2. Choose **Excel**
-3. Upload `powerbi/ExpenseAnalytics.xlsx`
-4. When asked what to import, tick all six tables:
-   `dim_person`, `dim_category`, `dim_date`, `fact_expense`, `fact_expense_share`, `fact_settlement`
+If the service cannot import the local workbook in your environment, use Desktop or an approved connector. The workbook contains data tables, not the relationships, DAX measures or report layout; create those in the steps below.
 
 ### In Desktop
 
@@ -73,9 +51,9 @@ In **Model view**, drag these connections. All are **one-to-many**, single direc
 | `dim_person[person_id]` | `fact_expense_share[person_id]` | Yes |
 | `dim_person[person_id]` | `fact_expense[paid_by_person_id]` | **No — inactive** |
 
-The last one matters. A person relates to an expense in two different ways — they *consumed* part of it, and separately they may have *paid* for it. Two active relationships between the same pair of tables is ambiguous, so Power BI won't allow it. Keep the "paid by" relationship inactive and activate it only inside the `Amount Paid` measure with `USERELATIONSHIP`.
+A person consumed shares and may also have paid expenses. This model intentionally leaves the payer relationship inactive and activates it within `Amount Paid` using `USERELATIONSHIP`. Active relationships from a dimension to two different fact tables are not inherently invalid; the choice here keeps payer filtering explicit.
 
-**This is the thing to be able to explain in an interview.** It's the difference between having clicked through a tutorial and having actually modelled something.
+The six relationships above support the included DAX. Keep `fact_settlement` separate unless adding settlement measures deliberately; the screenshot also shows an optional date-to-settlement relationship.
 
 Finally: select `dim_date`, then **Table tools** → **Mark as date table** → pick `date_key`. Time intelligence functions (`DATEADD`, `TOTALYTD`) silently misbehave without it.
 
@@ -117,17 +95,19 @@ Two lines, not one. The gap between them *is* the story: total is flat because r
 
 **Middle right — where the money goes.** Bar chart, `dim_category[category_name]` by `[Total Spend]`, sorted descending. Add `[Category % of Total]` as a tooltip.
 
-**Bottom left — who owes whom.** Table or diverging bar:
+**Bottom left — balances before settlements.** Table or diverging bar:
 
 - Rows: `dim_person[person_name]`
 - Values: `[Amount Paid]`, `[Person Share]`, `[Net Balance]`
 - Conditional formatting on `[Net Balance]`: red below zero, green above
 
-**Bottom right — detail.** Table from `v_expense_detail` columns: date, category, merchant, paid by, amount. This is the drill-down that proves the numbers are real.
+**Bottom right — detail.** With PostgreSQL, import `analytics.v_expense_detail` separately. It has one row per person-share, so do not sum its repeated expense total. With Excel only, build the detail table from the six imported tables; the SQL view is not in the workbook.
 
 **Slicers** across the top: `dim_date[year_month]`, `dim_category[category_group]`, `dim_person[person_name]`.
 
 ---
+
+The reconciliation card should be checked with the person slicer cleared. That slicer filters `fact_expense_share`, while the payer relationship to `fact_expense` remains inactive outside `Amount Paid`. A non-zero card in that context is not automatically corrupt source data. The SQL reconciliation view also misses expenses with no share rows; validate completeness separately for new imports.
 
 ## 5. Polish (15 minutes, disproportionate payoff)
 

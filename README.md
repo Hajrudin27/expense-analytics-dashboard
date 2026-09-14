@@ -1,6 +1,10 @@
 # Expense Analytics Dashboard
 
-A Power BI report built on top of the [Roommate Expense Splitter API](https://github.com/hajrudin27) I wrote earlier this year. The API handles the logic of splitting shared costs between flatmates. This is the other half of the problem: taking a year of that data and turning it into something you can actually look at and get an answer from.
+A Power BI report based on the data-model ideas from the [Roommate Expense Splitter API](https://github.com/Hajrudin27/roommate-expense-splitter) I wrote earlier this year. The API handles shared-cost calculations; this repository explores reporting with a separate, reproducible synthetic dataset rather than a live API export.
+
+**PostgreSQL · SQL · Power BI / DAX · Python**
+
+The focus is traceable totals: explicit table grains, deterministic data generation, exact share reconciliation and a report that exposes its own data-quality checks. The workbook, SQL, DAX and screenshots are included; there is no committed `.pbix` report.
 
 ![Dashboard overview](docs/screenshots/dashboard-overview.png)
 
@@ -15,12 +19,12 @@ Tutorials hand you data that's already clean and a model that's already correct,
 - Are we spending more than usual this month?
 - Which categories actually drive the bill?
 - What does living here cost me personally?
-- Who owes who right now?
+- What did each person pay versus consume, before settlements?
 - Can I trust these numbers?
 
 That last one sounds odd for a dashboard, but I ended up putting a data quality check directly on the report page. More on that below.
 
-## What I found
+## What the synthetic example shows
 
 I started with one line on a chart: total spend per month. It was almost completely flat, somewhere between 17,000 and 21,000 DKK every single month, and it told me nothing at all.
 
@@ -50,7 +54,7 @@ So I tagged every category as Fixed, Variable, Discretionary or Irregular, and w
 2026-08      20,880       11,547          590        2,232
 ```
 
-Total spend swings **23%** across the year. Variable spend swings **59%**. So there's roughly two and a half times more movement than the headline number suggests, and underneath it there are two real seasonal patterns: the electricity bill is over four times higher in January than in August, and eating out drops to 778 DKK in January against a monthly average of about 1,750.
+Total spend swings **23%** across the year. Variable spend swings **59%**. So there's roughly two and a half times more movement than the headline number suggests, and underneath it there are two simulated seasonal patterns: the electricity bill is over four times higher in January than in August, and eating out drops to 778 DKK in January against a monthly average of about 1,750.
 
 None of that is visible if you only plot the total.
 
@@ -72,7 +76,7 @@ The two fact tables are at different grains on purpose. `fact_expense` has one r
 
 A person is connected to an expense in two different ways. They consumed a share of it, and they may separately have paid for the whole thing. Those are different questions and they need different numbers.
 
-I tried to set up both relationships and Power BI refused, because two active paths between the same two tables is ambiguous and it can't work out which one you mean. The fix is to leave one of them inactive and switch it on only inside the measure that needs it:
+The model keeps the payer relationship inactive and activates it inside `Amount Paid`, so payer filtering is an explicit decision. Consumption uses the active relationship to the share table. This is the chosen model design, not a general rule that a person dimension cannot filter two separate facts:
 
 ```dax
 Amount Paid =
@@ -84,7 +88,7 @@ CALCULATE (
 Net Balance = [Amount Paid] - [Person Share]
 ```
 
-I didn't know about `USERELATIONSHIP` before this project. What I'd have done otherwise is duplicate the person table, which works but leaves you maintaining two copies of the same thing.
+I learned `USERELATIONSHIP` while working on this model. Separate role-playing person dimensions would also be a reasonable design when a report needs payer and consumer selections at the same time.
 
 If you get this wrong you don't get an error. You get a report where everybody's balance is zero, which looks completely fine and is completely wrong.
 
@@ -101,8 +105,10 @@ If you split an odd amount between three people there's a remainder, and if you 
 The split logic gives the remainder to the first participant, and I check it in three places:
 
 1. The data generator asserts that shares reconcile before it writes anything
-2. `v_dq_share_reconciliation` in SQL returns any expense whose shares don't sum to its total (it returns nothing)
-3. A `Reconciliation Difference` card sits on the report itself
+2. `v_dq_share_reconciliation` in SQL flags mismatched totals for expenses that have share rows (expected result for the included dataset: zero rows)
+3. A `Reconciliation Difference` card compares expense and share totals in the report
+
+The SQL check uses an inner join, so it does not detect expenses with no shares. The DAX card is filter-context dependent: a person filter can narrow shares without narrowing the inactive payer relationship. Read the global reconciliation with the person slicer cleared, and check missing-share rows separately when importing other data.
 
 ```
 Total expenses : 233,593.45 DKK
@@ -130,11 +136,11 @@ docs/            Screenshots
 
 ## Running it
 
-Power BI Desktop is Windows only and I'm on a Mac, so I built this in the browser version at [app.powerbi.com](https://app.powerbi.com). That worked fine, with one catch: uploading CSVs there creates a separate semantic model per file, which makes relationships impossible. Uploading a single Excel workbook with all the tables in it gets you one model, which is what you want. That's why `ExpenseAnalytics.xlsx` exists.
+I built the report in the browser version of [Power BI](https://app.powerbi.com) while working on a Mac. `ExpenseAnalytics.xlsx` packages all six data tables as named Excel Tables, so they can be loaded into one semantic model. Relationships, measures and visuals still need to be created; the workbook is a data source, not a saved Power BI report. Browser import/editing options depend on the account and tenant configuration.
 
 Load that file, then follow [`powerbi/MODEL_SETUP.md`](powerbi/MODEL_SETUP.md).
 
-If you'd rather run it against a real database:
+To load the synthetic dataset into a **new, disposable PostgreSQL database** (the schema script drops/recreates the `analytics` schema):
 
 ```bash
 createdb expenses
@@ -146,15 +152,18 @@ psql -d expenses -f sql/03_reporting_views.sql
 psql -d expenses -c "SET search_path TO analytics; SELECT * FROM v_dq_share_reconciliation;"
 ```
 
-To regenerate the data:
+To regenerate the data, use Python 3. The CSV and SQL generators use the standard library; Excel export additionally needs `openpyxl`:
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install openpyxl==3.1.5
 python3 scripts/generate_data.py
 python3 scripts/make_seed_sql.py
 python3 scripts/make_excel.py
 ```
 
-The generator uses a fixed seed, so you get identical output every time and the CSVs and SQL never drift apart.
+The generator uses fixed seed `27`. Regenerate the CSVs and SQL together, then check `git diff -- data sql/02_seed_data.sql` for drift. Reproducibility depends on keeping the generator/runtime stable; date names also depend on locale. Excel archive metadata may differ even when table values match.
 
 ## About the data
 
@@ -164,7 +173,8 @@ I used generated data because publishing a year of my actual flatmates' spending
 
 ## What I'd do differently
 
-- The settlements table is in the model but nothing much uses it yet. Working out who should pay who, and in the fewest transfers, is a nicer problem than it looks and I'd like to come back to it.
+- The SQL `v_person_balance` includes settlements sent and received. The DAX `Net Balance` shown in the report is paid minus consumed, **before settlements**. Those two measures answer different questions; the dashboard should not be treated as a post-settlement ledger.
+- Reconciliation needs stronger coverage for missing shares and person-filter behaviour before accepting arbitrary imported data.
 - Right now the report reads from a static file. Connecting Power BI straight to the PostgreSQL database would be closer to how this works in practice.
 - I'd like to try rebuilding the whole thing as a Power App, so adding an expense and seeing the dashboard update are the same tool.
 
